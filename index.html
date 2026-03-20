@@ -30,11 +30,66 @@
    </div>                
     <script type='text/javascript'> var divElement = document.getElementById('viz1773502618767'); var vizElement = divElement.getElementsByTagName('object')[0];  if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1320px';vizElement.style.maxWidth='1520px';vizElement.style.width='100%';vizElement.style.height='1187px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1320px';vizElement.style.maxWidth='1520px';vizElement.style.width='100%';vizElement.style.height='1187px';} else { vizElement.style.width='100%';vizElement.style.height='927px';} var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement); </script>
 
-   <h1>Mi consumo de géneros por año</h1>
-  <object data="./generosxaño.svg" type="image/svg+xml"></object>
+
+  /*TP 1*/
   
-  <h1> Patrones de visualización: minutos vistos por hora y día </h1>
-  <div class="flourish-embed flourish-chart" data-src="visualisation/28157490"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/28157490/thumbnail" width="100%" alt="visualization" /></noscript></div>
+  <style>
+    /* ----- ESTILOS GENERALES ----- */
+    body {
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      margin: 40px auto;
+      max-width: 900px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    /* ----- TITULOS ----- */
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-top: 60px;
+      margin-bottom: 10px;
+      color: #111;
+      border-left: 6px solid #6c63ff;
+      padding-left: 12px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #555;
+      margin-top: -5px;
+      margin-bottom: 25px;
+    }
+
+    /* ----- VISUALIZACIONES ----- */
+    object,
+    .flourish-embed {
+      width: 100%;
+      margin: 20px 0 50px 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SECCIÓN 1 -->
+  <h1>Evolución de mis géneros más vistos por año</h1>
+  <h2 class="subtitle">Cómo fueron cambiando mis preferencias entre 2021 y 2026</h2>
+
+  <object data="./generosxaño.svg" type="image/svg+xml"></object>
+
+  <!-- SECCIÓN 2 -->
+  <h1>Patrones de visualización: minutos vistos por hora y día</h1>
+  <h2 class="subtitle">Un mapa de calor de mis hábitos de consumo a lo largo de la semana</h2>
+
+  <div class="flourish-embed flourish-chart" data-src="visualisation/28157490">
+    <script src="https://public.flourish.studio/resources/embed.js"></script>
+    <noscript>
+      <img src="https://public.flourish.studio/visualisation/28157490/thumbnail" width="100%" alt="visualization" />
+    </noscript>
+  </div>
 
 </body>
 </html>
