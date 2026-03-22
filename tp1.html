@@ -1,141 +1,349 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decodificando mi Netflix</title>
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      margin: 40px auto;
-      max-width: 900px;
-      line-height: 1.6;
-      color: #222;
-      background: #fafafa;
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fdfcf9;
+      --ink: #1a1814;
+      --muted: #8a8070;
+      --accent: #c0392b;
+      --border: #d4cfc5;
     }
 
-    /* TITULO PRINCIPAL */
-    .main-title {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: #6c63ff;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      background: var(--ink);
+      color: var(--bg);
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 10px;
+      padding: 10px 24px;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 3px solid var(--ink);
+      padding-bottom: 40px;
+    }
+
+    .hero-left {
+      border-right: 1px solid var(--border);
+      padding-right: 40px;
+    }
+
+    .issue-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .main-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-rule {
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      margin-bottom: 20px;
     }
 
     .intro {
-      text-align: center;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 50px auto;
       font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
     }
 
-    /* SECCIONES */
+    .hero-right {
+      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .toc-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .toc-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--border);
+      min-width: 32px;
+    }
+
+    .toc-text {
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* SECTIONS */
     section {
-      margin-bottom: 70px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #eee;
+      padding: 70px 0 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .section-meta {
+      border-top: 3px solid var(--ink);
+      padding-top: 14px;
+    }
+
+    .section-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 5px;
-      color: #111;
-      border-left: 6px solid #6c63ff;
-      padding-left: 12px;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 8px;
     }
 
     .subtitle {
-      font-size: 1.05rem;
-      color: #666;
-      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
     }
 
     .note {
-      font-size: 0.9rem;
-      color: #777;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
       margin-bottom: 20px;
+      padding-left: 16px;
+      border-left: 2px solid var(--border);
     }
 
-    /* VISUALS */
-    object,
-    .flourish-embed {
-      width: 100%;
-      margin: 20px 0 30px 0;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      background: white;
+    /* VIZ */
+    .viz-wrap {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    object { width: 100%; display: block; }
+
+    .flourish-embed,
+    .datawrapper-wrap { width: 100%; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--ink);
+      border-top: 3px solid var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+      margin: 40px 0;
+      line-height: 1.5;
     }
 
     /* FOOTER */
-    .footer {
+    footer {
+      background: var(--ink);
+      color: var(--muted);
       text-align: center;
-      font-size: 0.85rem;
-      color: #999;
-      margin-top: 40px;
+      padding: 24px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <div class="main-title">Decodificando mi Netflix 🕵️‍♀️</div>
+  <!-- MASTHEAD -->
+  <div class="masthead">Visualización de datos — TP1 &nbsp;·&nbsp; 2026</div>
 
-  <div class="intro">
-    ¿Qué dicen mis hábitos de consumo sobre mí?  
-    En este análisis exploro cómo evolucionaron mis gustos,  
-    cuándo miro más contenido y qué patrones aparecen con el tiempo.
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <span class="issue-tag">Análisis personal</span>
+      <div class="main-title">Decodi&shy;ficando<br>mi <em>Netflix</em></div>
+      <div class="hero-rule"></div>
+      <p class="intro">¿Qué dicen mis hábitos de consumo sobre mí? En este análisis exploro cómo evolucionaron mis gustos, cuándo miro más contenido y qué patrones aparecen con el tiempo.</p>
+    </div>
+    <div class="hero-right">
+      <div class="toc-label">En este análisis</div>
+      <div class="toc-item"><span class="toc-num">01</span><span class="toc-text">Evolución de géneros</span></div>
+      <div class="toc-item"><span class="toc-num">02</span><span class="toc-text">Horarios de consumo</span></div>
+      <div class="toc-item"><span class="toc-num">03</span><span class="toc-text">Ranking de series</span></div>
+      <div class="toc-item"><span class="toc-num">04</span><span class="toc-text">¿Mainstream o nichera?</span></div>
+    </div>
   </div>
 
-  <!-- SECCIÓN 1 -->
-  <section>
-    <h1>Evolución de mis géneros más vistos</h1>
-    <div class="subtitle">
-      Cómo fueron cambiando mis preferencias entre 2021 y 2026
-    </div>
+  <!-- CONTENT -->
+  <div class="content">
 
-    <object data="./generosxaño.svg" type="image/svg+xml"></object>
-  </section>
+    <!-- SECCIÓN 1 -->
+    <section>
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-meta">
+          <span class="section-tag">Géneros</span>
+          <h1>Evolución de mis géneros más vistos</h1>
+          <p class="subtitle">Cómo fueron cambiando mis preferencias entre 2021 y 2026</p>
+        </div>
+      </div>
+      <div class="viz-wrap">
+        <object data="./generosxaño.svg" type="image/svg+xml"></object>
+      </div>
+    </section>
 
-  <!-- SECCIÓN 2 -->
-  <section>
-    <h1>¿Cuándo consumo más contenido?</h1>
-    <div class="subtitle">
-      Distribución de minutos vistos según día y hora
-    </div>
+    <!-- SECCIÓN 2 -->
+    <section>
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-meta">
+          <span class="section-tag">Horarios</span>
+          <h1>¿Cuándo consumo más contenido?</h1>
+          <p class="subtitle">Distribución de minutos vistos según día y hora</p>
+        </div>
+      </div>
+      <p class="note">Se muestra la suma total de minutos vistos por franja horaria, acumulados entre 2021 y 2026.</p>
+      <div class="viz-wrap">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/28159783">
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+        </div>
+      </div>
+    </section>
 
-    <div class="note">
-      *Se muestra la suma total de minutos vistos por franja horaria,
-      acumulados entre 2021 y 2026.*
-    </div>
+    <!-- SECCIÓN 3 -->
+    <section>
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-meta">
+          <span class="section-tag">Ranking</span>
+          <h1>¿Qué estoy viendo realmente?</h1>
+          <p class="subtitle">Ranking dinámico de series según tiempo de visualización</p>
+        </div>
+      </div>
+      <div class="viz-wrap">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/28173718">
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+        </div>
+      </div>
+    </section>
 
-    <div class="flourish-embed flourish-chart" data-src="visualisation/28159783">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-    </div>
-  </section>
+    <!-- SECCIÓN 4 -->
+    <section>
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-meta">
+          <span class="section-tag">Popularidad</span>
+          <h1>¿Mainstream o nichera?</h1>
+          <p class="subtitle">Distribución del consumo según popularidad del contenido, por año</p>
+        </div>
+      </div>
+      <div class="pull-quote">"A partir de 2024, el contenido nichero domina claramente — las preferencias se alejaron del mainstream."</div>
+      <div class="viz-wrap">
+        <div class="datawrapper-wrap">
+          <div style="min-height:425px" id="datawrapper-vis-9Wt1n">
+            <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/9Wt1n/embed.js" charset="utf-8" data-target="#datawrapper-vis-9Wt1n"></script>
+            <noscript><img src="https://datawrapper.dwcdn.net/9Wt1n/full.png" alt="Gráfico de barras apiladas que muestra la distribución de horas vistas en Netflix por año, clasificadas en tres categorías de popularidad: Viral, Popular y Nichero, entre 2021 y 2026." /></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- SECCIÓN 3 -->
-  <section>
-    <h1>¿Qué estoy viendo realmente?</h1>
-    <div class="subtitle">
-      Ranking dinámico de series según tiempo de visualización
-    </div>
-
-    <div class="flourish-embed flourish-chart" data-src="visualisation/28173718">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-    </div>
-  </section>
+  </div>
 
   <!-- FOOTER -->
-  <div class="footer">
-    Visualización de datos — TP1
-  </div>
+  <footer>Visualización de datos — TP1 &nbsp;·&nbsp; Victoria Balbi</footer>
 
 </body>
 </html>
