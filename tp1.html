@@ -207,6 +207,13 @@
     }
 
     /* VIZ */
+    .viz-wrap-tableau {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
     .viz-wrap {
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -259,6 +266,7 @@
     </div>
     <div class="hero-right">
       <div class="toc-label">En este análisis</div>
+      <div class="toc-item"><span class="toc-num">00</span><span class="toc-text">Overview general</span></div>
       <div class="toc-item"><span class="toc-num">01</span><span class="toc-text">Evolución de géneros</span></div>
       <div class="toc-item"><span class="toc-num">02</span><span class="toc-text">Horarios de consumo</span></div>
       <div class="toc-item"><span class="toc-num">03</span><span class="toc-text">Ranking de series</span></div>
@@ -268,6 +276,56 @@
 
   <!-- CONTENT -->
   <div class="content">
+
+    <!-- SECCIÓN 00 — TABLEAU -->
+    <section>
+      <div class="section-header">
+        <div class="section-num">00</div>
+        <div class="section-meta">
+          <span class="section-tag">Overview</span>
+          <h1>Un overview de mi Netflix</h1>
+          <p class="subtitle">Métricas clave de consumo entre 2021 y 2026</p>
+        </div>
+      </div>
+      <div class="viz-wrap-tableau">
+        <div class='tableauPlaceholder' id='viz1774239165234' style='position: relative'>
+          <noscript><a href='#'><img alt='Overview' src='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1_rss.png' style='border: none' /></a></noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='NetflixOverview_17742391425690/Overview' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1774239165234');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          if (divElement.offsetWidth > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else if (divElement.offsetWidth > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = '1277px';
+          }
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+    </section>
 
     <!-- SECCIÓN 1 -->
     <section>
@@ -315,7 +373,6 @@
       <div class="viz-wrap">
         <div class="flourish-embed flourish-chart" data-src="visualisation/28173718">
           <script src="https://public.flourish.studio/resources/embed.js"></script>
-          <noscript><img src="https://public.flourish.studio/visualisation/28173718/thumbnail" width="100%" alt="visualization" /></noscript>
         </div>
       </div>
     </section>
