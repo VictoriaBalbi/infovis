@@ -82,7 +82,7 @@
       background: var(--accent);
       margin-bottom: 20px;
     }
-    
+
     .intro {
       font-size: 1.05rem;
       line-height: 1.8;
@@ -231,11 +231,6 @@
       line-height: 1.5;
     }
 
-    #tableauViz {
-      width: 100%;
-      min-height: 550px;
-      margin: 40px 0;
-    }
     /* FOOTER */
     footer {
       background: var(--ink);
@@ -246,7 +241,6 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    
   </style>
 </head>
 <body>
@@ -337,26 +331,40 @@
       </div>
     </div>
 
-    <!-- GRÁFICO TABLEAU -->
-    <div id="tableauViz"></div>
-    
-    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var container = document.getElementById("tableauViz");
-    
-        var viz = new tableau.Viz(container,
-          "https://public.tableau.com/views/NetflixOverview_17742391425690/Overview2",
-          {
-            width: "100%",
-            height: "550px",
-            hideTabs: true,
-            hideToolbar: false
-          }
-        );
-      });
-    </script></script>
+    <!-- GRÁFICO TABLEAU: solo el gráfico de barras -->
+    <div style="width: 100%; margin: 0 0 60px 0;">
+      <div class='tableauPlaceholder' id='viz1774388184569' style='position: relative'>
+        <noscript><a href='#'><img alt='Overview' src='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1_rss.png' style='border: none' /></a></noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='NetflixOverview_17742391425690&#47;Overview' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+          <param name='filter' value='publish=yes' />
+        </object>
+      </div>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1774388184569');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = '550px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </div>
+  </div>
+
+  <div class="content">
 
     <!-- SECCIÓN 1 -->
     <section>
