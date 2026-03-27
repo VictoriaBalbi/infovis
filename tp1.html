@@ -108,6 +108,10 @@
       padding-bottom: 8px;
     }
 
+    /* SMOOTH SCROLL */
+    html { scroll-behavior: smooth; }
+
+    /* TOC LINKS */
     .toc-item {
       display: flex;
       align-items: baseline;
@@ -115,6 +119,23 @@
       padding: 10px 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.9rem;
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .toc-item:hover .toc-text { color: var(--accent); }
+    .toc-item:hover .toc-num  { color: var(--accent); }
+
+    /* COUNTER ANIMATION */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .counter-hero {
+      animation: countUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: 0.2s;
     }
 
     .toc-num {
@@ -258,17 +279,17 @@
     </div>
     <div class="hero-right">
       <div class="toc-label">En este análisis</div>
-      <div class="toc-item"><span class="toc-num">00</span><span class="toc-text">Overview general</span></div>
-      <div class="toc-item"><span class="toc-num">01</span><span class="toc-text">Evolución de géneros</span></div>
-      <div class="toc-item"><span class="toc-num">02</span><span class="toc-text">Horarios de consumo</span></div>
-      <div class="toc-item"><span class="toc-num">03</span><span class="toc-text">Ranking de series</span></div>
-      <div class="toc-item"><span class="toc-num">04</span><span class="toc-text">¿Mainstream o nichera?</span></div>
-      <div class="toc-item"><span class="toc-num">05</span><span class="toc-text">Idiomas</span></div>
+      <a href="#sec00" class="toc-item"><span class="toc-num">00</span><span class="toc-text">Overview general</span></a>
+      <a href="#sec01" class="toc-item"><span class="toc-num">01</span><span class="toc-text">Evolución de géneros</span></a>
+      <a href="#sec02" class="toc-item"><span class="toc-num">02</span><span class="toc-text">Horarios de consumo</span></a>
+      <a href="#sec03" class="toc-item"><span class="toc-num">03</span><span class="toc-text">Ranking de series</span></a>
+      <a href="#sec04" class="toc-item"><span class="toc-num">04</span><span class="toc-text">¿Mainstream o nichera?</span></a>
+      <a href="#sec05" class="toc-item"><span class="toc-num">05</span><span class="toc-text">Idiomas</span></a>
     </div>
   </div>
 
   <!-- SECCIÓN 00 — MÉTRICAS + TABLEAU -->
-  <div style="padding: 60px 0 0; border-bottom: 1px solid var(--border);">
+  <div id="sec00" style="padding: 60px 0 0; border-bottom: 1px solid var(--border);">
     <div style="max-width: 860px; margin: 0 auto; padding: 0 24px;">
       <div class="section-header">
         <div class="section-num">00</div>
@@ -282,7 +303,9 @@
       <!-- CARD HERO: horas totales -->
       <div style="border: 1px solid var(--border); border-radius: 4px; padding: 40px; text-align: center; margin-bottom: 20px;">
         <span style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600;">Total acumulado · 2021–2026</span>
-        <div style="font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; color: var(--accent); line-height: 1; margin: 16px 0 8px;">745.9<span style="font-size: 0.45em; font-weight: 700;">hs</span></div>
+        <div class="counter-hero" style="font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; color: var(--accent); line-height: 1; margin: 16px 0 8px;">
+          <span id="counter">0</span><span style="font-size: 0.45em; font-weight: 700;">hs</span>
+        </div>
         <p style="font-size: 0.95rem; color: var(--muted); font-weight: 300;">de contenido visto en Netflix</p>
       </div>
 
@@ -332,7 +355,7 @@
     </div>
 
     <!-- GRÁFICO TABLEAU: solo el gráfico de barras -->
-    <div style="max-width: 860px; margin: 0 auto 60px; padding: 0 24px;">
+    <div style="max-width: 1100px; margin: 0 auto 60px; padding: 0 24px;">
       <div class='tableauPlaceholder' id='viz1774388184569' style='position: relative'>
         <noscript><a href='#'><img alt='Overview' src='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1_rss.png' style='border: none' /></a></noscript>
         <object class='tableauViz' style='display:none;'>
@@ -367,7 +390,7 @@
   <div class="content">
 
     <!-- SECCIÓN 1 -->
-    <section>
+    <section id="sec01">
       <div class="section-header">
         <div class="section-num">01</div>
         <div class="section-meta">
@@ -382,7 +405,7 @@
     </section>
 
     <!-- SECCIÓN 2 -->
-    <section>
+    <section id="sec02">
       <div class="section-header">
         <div class="section-num">02</div>
         <div class="section-meta">
@@ -401,7 +424,7 @@
     </section>
 
     <!-- SECCIÓN 3 -->
-    <section>
+    <section id="sec03">
       <div class="section-header">
         <div class="section-num">03</div>
         <div class="section-meta">
@@ -418,7 +441,7 @@
     </section>
 
     <!-- SECCIÓN 4 -->
-    <section>
+    <section id="sec04">
       <div class="section-header">
         <div class="section-num">04</div>
         <div class="section-meta">
@@ -439,7 +462,7 @@
     </section>
 
     <!-- SECCIÓN 5 -->
-    <section>
+    <section id="sec05">
       <div class="section-header">
         <div class="section-num">05</div>
         <div class="section-meta">
@@ -460,6 +483,34 @@
 
   <!-- FOOTER -->
   <footer>Visualización de datos — TP1 &nbsp;·&nbsp; Victoria Balbi</footer>
+
+  <script>
+    // Animated counter for 745.9hs
+    const target = 745.9;
+    const el = document.getElementById('counter');
+    const duration = 2000;
+    const start = performance.now();
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = easeOut(progress) * target;
+      el.textContent = value.toFixed(1);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = '745.9';
+    }
+
+    // Start when card enters viewport
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        requestAnimationFrame(tick);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+  </script>
 
 </body>
 </html>
