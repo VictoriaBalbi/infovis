@@ -24,7 +24,6 @@
       font-weight: 300;
     }
 
-    /* MASTHEAD */
     .masthead {
       background: var(--ink);
       color: var(--bg);
@@ -36,7 +35,6 @@
       font-weight: 600;
     }
 
-    /* HERO */
     .hero {
       max-width: 860px;
       margin: 0 auto;
@@ -109,10 +107,8 @@
       padding-bottom: 8px;
     }
 
-    /* SMOOTH SCROLL */
     html { scroll-behavior: smooth; }
 
-    /* TOC LINKS */
     .toc-item {
       display: flex;
       align-items: baseline;
@@ -129,16 +125,6 @@
     .toc-item:hover .toc-text { color: var(--accent); }
     .toc-item:hover .toc-num  { color: var(--accent); }
 
-    /* COUNTER ANIMATION */
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .counter-hero {
-      animation: countUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-delay: 0.2s;
-    }
-
     .toc-num {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
@@ -153,21 +139,15 @@
       line-height: 1.3;
     }
 
-    /* CONTENT */
     .content {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
 
-    /* SECTIONS */
     section {
       padding: 70px 0 60px;
       border-bottom: 1px solid var(--border);
-    }
-
-    section:last-of-type {
-      border-bottom: none;
     }
 
     .section-header {
@@ -227,7 +207,6 @@
       border-left: 2px solid var(--border);
     }
 
-    /* VIZ */
     .viz-wrap {
       border: none;
       border-radius: 4px;
@@ -240,7 +219,6 @@
     .flourish-embed,
     .datawrapper-wrap { width: 100%; }
 
-    /* PULL QUOTE */
     .pull-quote {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
@@ -253,7 +231,67 @@
       line-height: 1.5;
     }
 
-    /* FOOTER */
+    /* CONCLUSION */
+    .conclusion {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 70px 24px 80px;
+    }
+
+    .conclusion-header {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .conclusion-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .conclusion-meta {
+      border-top: 3px solid var(--accent);
+      padding-top: 14px;
+    }
+
+    .conclusion-body {
+      padding-left: 104px;
+    }
+
+    .conclusion-lede {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .conclusion-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .conclusion-closing {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink);
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+      margin-top: 32px;
+      line-height: 1.7;
+    }
+
     footer {
       background: var(--ink);
       color: var(--muted);
@@ -267,10 +305,8 @@
 </head>
 <body>
 
-  <!-- MASTHEAD -->
   <div class="masthead">Visualización de datos — TP1 &nbsp;·&nbsp; 2026</div>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
       <span class="issue-tag">Análisis personal</span>
@@ -289,7 +325,7 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 00 — MÉTRICAS + TABLEAU -->
+  <!-- SECCIÓN 00 -->
   <div id="sec00" style="padding: 60px 0 0; border-bottom: 1px solid var(--border);">
     <div style="max-width: 860px; margin: 0 auto; padding: 0 24px;">
       <div class="section-header">
@@ -301,17 +337,13 @@
         </div>
       </div>
 
-      <!-- CARD HERO: horas totales -->
       <div style="background: #f7f5f0; border-radius: 4px; padding: 40px; text-align: center; margin-bottom: 20px;">
         <span style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 600;">Total acumulado · 2021 — 13 de marzo de 2026</span>
         <div style="font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; color: var(--accent); line-height: 1; margin: 16px 0 8px;">745.9<span style="font-size: 0.45em; font-weight: 700;">hs</span></div>
         <p style="font-size: 0.95rem; color: var(--muted); font-weight: 300;">de contenido visto en Netflix</p>
       </div>
 
-      <!-- 3 CARDS SECUNDARIAS -->
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;">
-
-        <!-- Series vs Películas -->
         <div style="background: #f7f5f0; border-radius: 4px; padding: 28px 20px;">
           <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: block; margin-bottom: 16px;">Tipo de contenido</span>
           <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -327,7 +359,6 @@
           </div>
         </div>
 
-        <!-- Títulos únicos -->
         <div style="background: #f7f5f0; border-radius: 4px; padding: 28px 20px;">
           <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: block; margin-bottom: 16px;">Títulos únicos</span>
           <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -343,50 +374,39 @@
           </div>
         </div>
 
-        <!-- Día maratonero -->
         <div style="background: #f7f5f0; border-radius: 4px; padding: 28px 20px;">
           <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: block; margin-bottom: 16px;">Día más maratonero</span>
           <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 10px;">Sábado 17 de diciembre de 2022</div>
           <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--accent); line-height: 1;">6.0<span style="font-size: 0.5em; font-weight: 700;">hs</span></div>
         </div>
-         
-      <!-- Dispositivo -->
+
         <div style="background: #f7f5f0; border-radius: 4px; padding: 28px 20px;">
           <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 600; display: block; margin-bottom: 16px;">Dispositivo principal</span>
-        
           <div style="display: flex; flex-direction: column; gap: 10px;">
-        
             <div>
               <div style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--accent); line-height: 1;">92.85%</div>
               <div style="font-size: 0.85rem; color: var(--muted); margin-top: 2px;">Smart TV</div>
             </div>
-        
             <div style="width: 100%; height: 1px; background: var(--border);"></div>
-        
             <div>
               <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1;">5.58%</div>
               <div style="font-size: 0.85rem; color: var(--muted); margin-top: 2px;">iPad</div>
             </div>
-        
             <div style="width: 100%; height: 1px; background: var(--border);"></div>
-        
             <div>
               <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1;">1.57%</div>
               <div style="font-size: 0.85rem; color: var(--muted); margin-top: 2px;">Celular</div>
             </div>
-        
           </div>
         </div>
       </div>
-
-    
     </div>
-     <!-- SUBTITULO DE TABLEU-->
-     <div style="max-width: 1100px; margin: 0 auto 60px; padding: 0 24px;">
-      <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 600;">     Evolución temporal   </span>   
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-top: 6px;">     ¿Qué año fue el más maratonero?   </h2> </div>
 
-    <!-- GRÁFICO TABLEAU: solo el gráfico de barras -->
+    <div style="max-width: 1100px; margin: 0 auto 60px; padding: 0 24px;">
+      <span style="font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 600;">Evolución temporal</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-top: 6px;">¿Qué año fue el más maratonero?</h2>
+    </div>
+
     <div style="max-width: 1100px; margin: 0 auto 60px; padding: 0 24px;">
       <div class='tableauPlaceholder' id='viz1774388184569' style='position: relative'>
         <noscript><a href='#'><img alt='Overview' src='https://public.tableau.com/static/images/Ne/NetflixOverview_17742391425690/Overview/1_rss.png' style='border: none' /></a></noscript>
@@ -518,9 +538,24 @@
 
   </div>
 
-  <!-- FOOTER -->
-  <footer>Visualización de datos — TP1 &nbsp;·&nbsp; Victoria Balbi</footer>
+  <!-- CONCLUSIÓN -->
+  <div class="conclusion">
+    <div class="conclusion-header">
+      <div class="conclusion-num">—</div>
+      <div class="conclusion-meta">
+        <span class="section-tag">Conclusión</span>
+        <h1>Lo que los datos dijeron por mí</h1>
+      </div>
+    </div>
+    <div class="conclusion-body">
+      <p class="conclusion-lede">745 horas en cinco años. Eso es casi 31 días enteros frente a una pantalla, eligiendo qué ver, cuándo parar, qué volver a poner.</p>
+      <p class="conclusion-text">Esperaba confirmar lo que ya sabía: drama, comedia, y algo de mainstream. El drama y la comedia estaban, sí — como una constante en cada año. Los realities también, aunque esos son otra cosa: los elijo en los días cansados donde no quiero pensar tanto.</p>
+      <p class="conclusion-text">Lo que no esperaba fue el nicho. Ni los 12 idiomas. No fueron decisiones conscientes.</p>
+      <p class="conclusion-closing">Eso es lo más interesante de mirarse los datos propios: descubrís quién ya sos sin haberlo notado.</p>
+    </div>
+  </div>
 
+  <footer>Visualización de datos — TP1 &nbsp;·&nbsp; Victoria Balbi</footer>
 
 </body>
 </html>
